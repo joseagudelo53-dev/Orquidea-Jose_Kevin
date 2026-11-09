@@ -57,12 +57,19 @@ function pesos(valor) {
 }
 
 // === FUNCIÓN 4: Nombre de la categoría para mostrar ===
+// En los datos se guarda sin tildes ("iluminacion") y en la página se muestra bonito ("Iluminación")
+// Esta función convierte los nombres internos a nombres legibles para el usuario
 function nombreCategoria(categoria) {
+    // CONDICIONAL: if = "si"; else if = "si no, si"; else = "si no"
+    // === compara si son EXACTAMENTE iguales (mismo texto, mismas minúsculas)
     if (categoria === "iluminacion") {
+        // Si la categoría es "iluminacion", devuelve el nombre con tilde
         return "Iluminación";
     } else if (categoria === "electrodomesticos") {
+        // Si es "electrodomesticos", devuelve con tilde y acento
         return "Electrodomésticos";
     } else {
+        // Si no es ninguna de las dos anteriores, solo queda "solar"
         return "Energía solar";
     }
 }
