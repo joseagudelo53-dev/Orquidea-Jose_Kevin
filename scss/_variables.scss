@@ -64,3 +64,10 @@ $transicion-lenta: 0.5s;        // Transiciones lentas (animaciones)
         border-color: darken($bg-color, 10%);
     }
 }
+
+// --- Mixin: sombra interactiva (nueva) ---
+@mixin sombra-activa {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    transition: all $transicion-normal;
+}
