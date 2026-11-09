@@ -25,6 +25,7 @@
 
     <main>
         <div class="buscador-container">
+            <label for="buscador" class="form-label">Buscar productos:</label>
             <input
                 type="text"
                 id="buscador"
@@ -34,11 +35,11 @@
             >
         </div>
 
-        <div class="filtros">
-            <button class="filtro activo" data-categoria="todas">Todas</button>
-            <button class="filtro" data-categoria="iluminacion">Iluminación</button>
-            <button class="filtro" data-categoria="electrodomesticos">Electrodomésticos</button>
-            <button class="filtro" data-categoria="solar">Energía solar</button>
+        <div class="filtros" role="group" aria-label="Filtrar por categoría">
+            <button class="filtro activo" data-categoria="todas" aria-pressed="true">Todas</button>
+            <button class="filtro" data-categoria="iluminacion" aria-pressed="false">Iluminación</button>
+            <button class="filtro" data-categoria="electrodomesticos" aria-pressed="false">Electrodomésticos</button>
+            <button class="filtro" data-categoria="solar" aria-pressed="false">Energía solar</button>
         </div>
 
         <div class="catalogo">
