@@ -1,17 +1,17 @@
-# 🌸 Orquídea - Tienda de Equipos que Ahorran Energía
+#  Orquídea - Tienda de Equipos que Ahorran Energía
 
 Tienda en línea de equipos eficientes energéticamente, diseñada como proyecto educativo para demostrar habilidades en HTML5, CSS, Sass, Bootstrap y JavaScript Vanilla.
 
-## 📋 Descripción
+##  Descripción
 
 En 2026, el fenómeno de El Niño ha causado una crisis energética en Colombia. Los precios de la energía han subido drásticamente (de 212 COP/kWh en enero a 942 COP/kWh en agosto). **Orquídea** ayuda a los usuarios a encontrar equipos eficientes que les permitan ahorrar dinero en su factura de energía.
 
-## 🌐 Sitio Web
+##  Sitio Web
 
 - **GitHub Pages**: [Tu enlace aquí]
 - **Repositorio GitHub**: https://github.com/tu-usuario/Orquidea-Jose_Kevin
 
-## 👥 Integrantes del Equipo
+##  Integrantes del Equipo
 
 - **Jose Andres Agudelo** - Desarrollador Frontend + JavaScript
   - Email: jose.agudelo53@est.iudigital.edu.co
@@ -21,7 +21,7 @@ En 2026, el fenómeno de El Niño ha causado una crisis energética en Colombia.
   - Email: kevin.rosario@est.iudigital.edu.co
   - Responsable: Estilos Sass, diseño responsivo, personalización Bootstrap, efectos visuales
 
-## 📁 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 Orquidea-Jose_Kevin/
@@ -41,7 +41,7 @@ Orquidea-Jose_Kevin/
 └── README.md           # Este archivo
 ```
 
-## 🎨 Características
+##  Características
 
 ### HTML5
 - Estructura semántica completa
@@ -67,7 +67,7 @@ Orquidea-Jose_Kevin/
 - **4+ funciones propias** para cálculos
 - **Manejo de eventos**: Click e input
 
-## 📦 Catálogo de Productos
+##  Catálogo de Productos
 
 ### Iluminación (4 productos)
 - Bombillo LED 9 W
@@ -86,7 +86,7 @@ Orquidea-Jose_Kevin/
 - Kit de panel solar 550 W
 - Bombilla solar recargable
 
-## 🚀 Cómo Usar
+##  Cómo Usar
 
 ### 1. Clonar el repositorio
 ```bash
@@ -117,7 +117,7 @@ npm run sass:watch
 # Node.js: npx http-server
 ```
 
-## 🎓 Tecnologías Utilizadas
+##  Tecnologías Utilizadas
 
 - **HTML5** - Estructura semántica
 - **CSS3** - Estilos y diseño responsivo
@@ -128,7 +128,7 @@ npm run sass:watch
 - **Git/GitHub** - Control de versiones y colaboración
 - **GitHub Pages** - Hosting
 
-## ✅ Validación
+##  Validación
 
 - ✅ HTML válido según W3C
 - ✅ CSS válido según W3C
@@ -136,30 +136,30 @@ npm run sass:watch
 - ✅ Responsivo en celular, tablet y desktop
 - ✅ Funcionalidades probadas
 
-## 📝 Commits
+##  Commits
 
-### Jose Andres Agudelo (Mínimo 3 commits)
+### Jose Andres Agudelo 
 1. `Jose: creo estructura HTML de las 4 páginas y carpetas del proyecto`
 2. `Jose: programo catálogo dinámico, filtros, buscador y carrito con JavaScript`
 3. `Jose: completo páginas nosotros.html y contacto.html con formularios`
 
-### Kevin Rosario Cano (Mínimo 3 commits)
+### Kevin Rosario Cano 
 1. `Kevin: creo sistema de estilos Sass con variables, mixins y paleta de colores`
 2. `Kevin: agrego estilos CSS responsivos, Grid, Flexbox y transiciones`
 3. `Kevin: personalizo Bootstrap, agrego efectos visuales y refinamientos de diseño`
 
-## 🏷️ Tag de Entrega
+##  Tag de Entrega
 
 ```bash
 git tag ea2
 git push origin ea2
 ```
 
-## 📸 Capturas de Pantalla
+##  Capturas de Pantalla
 
-[Aquí irán las capturas en computador y celular]
 
-## 📚 Recursos Utilizados
+
+##  Recursos Utilizados
 
 - [EcoTienda](../ecotienda/) - Proyecto base para referencia
 - [Bootstrap Docs](https://getbootstrap.com/)
@@ -172,8 +172,8 @@ ISC
 
 ## 📧 Contacto
 
-- **Jose Andres Agudelo**: jose.agudelo53@est.iudigital.edu.co
-- **Kevin Rosario Cano**: kevin.rosario@est.iudigital.edu.co
+- **Jose Andres Agudelo- C.C:1017247547**: jose.agudelo53@est.iudigital.edu.co
+- **Kevin Rosario Cano- C.C: 1038387214**: kevin.rosario@est.iudigital.edu.co
 
 ---
 
