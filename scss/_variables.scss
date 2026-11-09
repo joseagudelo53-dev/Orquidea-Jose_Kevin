@@ -1,0 +1,66 @@
+// =============================================================
+// PARCIAL de Sass: solo variables y mixins
+// El guion bajo (_variables.scss) le dice a Sass que este archivo
+// no se compila solo: se usa desde estilos.scss con @use
+// =============================================================
+
+// --- Variables de Color: paleta de la tienda Orquídea ---
+$color-principal: #6B4BA3;      // Morado oscuro: encabezado y títulos
+$color-acento: #FF6B9D;         // Rosa/magenta: precios y detalles
+$color-fondo: #F8F6FB;          // Lavanda muy clara: fondo
+$color-texto: #2D2D2D;          // Casi negro: texto principal
+$color-suave: #E8DFF5;          // Lavanda clara: bordes y divisiones
+$color-exito: #4CAF50;          // Verde: mensajes de éxito
+$color-advertencia: #FF9800;    // Naranja: alertas
+
+// --- Tipografía ---
+$fuente-principal: "Poppins", Arial, sans-serif;   // Fuente de Google Fonts
+$tamanio-base: 16px;
+
+// --- Espaciados (modelo de caja) ---
+$radio: 12px;                   // border-radius estándar
+$sombra: 0 4px 12px rgba(0, 0, 0, 0.1);          // box-shadow suave
+$sombra-fuerte: 0 8px 24px rgba(0, 0, 0, 0.15); // box-shadow más pronunciada
+
+// --- Breakpoints para diseño responsivo ---
+$tablet: 992px;                 // Máximo ancho para tablet
+$celular: 576px;                // Máximo ancho para celular
+
+// --- Tiempos de transición ---
+$transicion-rapida: 0.2s;       // Transiciones rápidas (hover)
+$transicion-normal: 0.3s;       // Transiciones normales
+$transicion-lenta: 0.5s;        // Transiciones lentas (animaciones)
+
+// --- Mixin: caja con relleno, esquinas y sombra (reutilizable) ---
+// $relleno tiene un valor por defecto (16px) si no se le pasa otro
+@mixin caja($relleno: 16px) {
+    padding: $relleno;
+    border-radius: $radio;
+    box-shadow: $sombra;
+}
+
+// --- Mixin: efectos de hover ---
+@mixin efecto-hover {
+    transition: all $transicion-normal ease-in-out;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: $sombra-fuerte;
+    }
+}
+
+// --- Mixin: botón reusable ---
+@mixin boton($bg-color, $text-color: white) {
+    background-color: $bg-color;
+    color: $text-color;
+    border: 2px solid $bg-color;
+    padding: 8px 16px;
+    border-radius: $radio;
+    transition: all $transicion-normal;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($bg-color, 10%);
+        border-color: darken($bg-color, 10%);
+    }
+}

@@ -1,0 +1,643 @@
+// =============================================================
+// Hoja de estilos de Orquídea, escrita en Sass
+// Se compila a css/estilos.css con:
+//     npx sass scss/estilos.scss css/estilos.css --no-source-map
+// El navegador NO lee este archivo: lee el .css que produce Sass
+// =============================================================
+
+// @use trae las variables y los mixins del parcial _variables.scss
+// "as *" permite escribir $color-principal en vez de variables.$color-principal
+@use "variables" as *;
+
+// === VARIABLES CSS GENERADAS DESDE SASS ===
+// Esto permite que Bootstrap y JavaScript también usen estos valores
+:root {
+    --color-principal: #{$color-principal};
+    --color-acento: #{$color-acento};
+    --color-fondo: #{$color-fondo};
+    --color-texto: #{$color-texto};
+    --color-suave: #{$color-suave};
+    --color-exito: #{$color-exito};
+    --color-advertencia: #{$color-advertencia};
+}
+
+// === ESTILOS BASE ===
+
+// La página entera
+body {
+    font-family: $fuente-principal;
+    background-color: $color-fondo;
+    color: $color-texto;
+    line-height: 1.6;
+}
+
+// Todos los títulos
+h1, h2, h3, h4, h5, h6 {
+    color: $color-principal;
+    font-weight: 700;
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+// === ENCABEZADO ===
+// --- Anidamiento: las reglas de adentro solo aplican dentro de .encabezado ---
+.encabezado {
+    background: linear-gradient(135deg, $color-principal 0%, darken($color-principal, 10%) 100%);
+    color: white;
+    margin-bottom: 24px;
+    @include caja(24px);
+    border-radius: 16px;
+
+    h1 {
+        color: white;
+        margin-top: 0;
+        font-size: 2.2rem;
+    }
+
+    p {
+        color: lighten($color-principal, 30%);
+        margin-bottom: 16px;
+        font-size: 1.1rem;
+    }
+
+    // Media query para celular (anidada)
+    @media (max-width: $celular) {
+        padding: 16px;
+
+        h1 {
+            font-size: 1.6rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+        }
+    }
+}
+
+// === MENÚ DE NAVEGACIÓN ===
+// --- Flexbox: los enlaces en fila ---
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+
+    @media (max-width: $celular) {
+        flex-direction: column;
+    }
+
+    // Selector > : solo los hijos directos (no anidados)
+    > a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 999px;
+        transition: all $transicion-normal;
+        font-weight: 500;
+
+        // Pseudoclase :hover (con mouse encima)
+        &:hover {
+            background-color: white;
+            color: $color-principal;
+            border-color: white;
+        }
+
+        // Pseudoclase :focus (con Tab)
+        &:focus {
+            outline: 3px solid $color-acento;
+            outline-offset: 2px;
+        }
+
+        // Pseudoclase :active (al hacer clic)
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+}
+
+// === SECCIÓN INTRODUCTORIA ===
+#intro {
+    background-color: white;
+    padding: 16px 24px;
+    margin-bottom: 24px;
+    border-left: 6px solid $color-acento;
+    border-radius: $radio;
+    box-shadow: $sombra;
+
+    h2 {
+        margin-top: 0;
+    }
+
+    p {
+        margin-bottom: 12px;
+
+        strong {
+            color: $color-principal;
+            font-weight: 700;
+        }
+    }
+
+    // Última etiqueta p (pseudoclase :last-child)
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// === TARJETAS (GRID) ===
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+
+    // Media query para tablet
+    @media (max-width: $tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    // Media query para celular
+    @media (max-width: $celular) {
+        grid-template-columns: 1fr;
+    }
+}
+
+// Cada tarjeta individual
+.tarjeta {
+    background-color: white;
+    border: 1px solid $color-suave;
+    @include caja(16px);
+    transition: all $transicion-normal;
+
+    // Pseudoclase :hover
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: $sombra-fuerte;
+        border-color: $color-acento;
+    }
+
+    // Pseudoclase :first-child (primera tarjeta)
+    &:first-child {
+        border-top: 6px solid $color-acento;
+    }
+
+    // Selector de atributo [atributo]
+    &[class~="integrante"] {
+        text-align: center;
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            background-color: $color-principal;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 12px;
+        }
+
+        .rol {
+            color: $color-acento;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .descripcion {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .email {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+    }
+
+    h3 {
+        margin-top: 0;
+        margin-bottom: 8px;
+    }
+
+    // Selector descendiente + :nth-child()
+    p:nth-child(2) {
+        min-height: 48px;
+    }
+}
+
+// === LLAMADA A LA ACCIÓN ===
+#cta {
+    background: linear-gradient(135deg, $color-principal 0%, darken($color-principal, 5%) 100%);
+    color: white;
+    @include caja(32px);
+    text-align: center;
+    border-radius: 16px;
+    margin-top: 32px;
+    margin-bottom: 24px;
+
+    h2 {
+        color: white;
+        margin-top: 0;
+    }
+
+    p {
+        color: lighten($color-principal, 20%);
+        font-size: 1.1rem;
+    }
+
+    .btn-primary {
+        margin-top: 12px;
+    }
+}
+
+// === BUSCADOR ===
+.buscador-container {
+    margin-bottom: 16px;
+
+    #buscador {
+        border: 2px solid $color-suave;
+        border-radius: $radio;
+        padding: 10px 16px;
+        font-family: $fuente-principal;
+
+        // Pseudoclase :focus
+        &:focus {
+            border-color: $color-principal;
+            box-shadow: 0 0 0 3px rgba($color-principal, 0.1);
+            outline: none;
+        }
+
+        // Selector de atributo [type]
+        &[type="text"] {
+            transition: all $transicion-normal;
+        }
+    }
+}
+
+// === FILTROS ===
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+    justify-content: center;
+
+    @media (max-width: $celular) {
+        justify-content: flex-start;
+    }
+}
+
+// Cada botón de filtro
+.filtro {
+    border: 2px solid $color-principal;
+    background-color: white;
+    color: $color-principal;
+    padding: 8px 16px;
+    border-radius: 999px;
+    transition: all $transicion-normal;
+    font-weight: 500;
+    cursor: pointer;
+
+    // Pseudoclases :hover y :focus
+    &:hover {
+        background-color: $color-principal;
+        color: white;
+    }
+
+    &:focus {
+        outline: 3px solid $color-acento;
+        outline-offset: 2px;
+    }
+
+    // Clase .activo (selector de clase agrupado con pseudoclase)
+    &.activo {
+        background-color: $color-principal;
+        color: white;
+        box-shadow: $sombra;
+    }
+}
+
+// === CATÁLOGO (GRID DE DOS COLUMNAS) ===
+.catalogo {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 16px;
+    align-items: start;
+
+    @media (max-width: $tablet) {
+        grid-template-columns: 1fr;
+    }
+}
+
+// === CARRITO ===
+#carrito {
+    background-color: white;
+    border: 2px solid $color-acento;
+    @include caja(16px);
+    border-radius: 12px;
+    position: sticky;
+    top: 16px;
+
+    h2 {
+        margin-top: 0;
+        color: $color-acento;
+        border-bottom: 2px solid $color-suave;
+        padding-bottom: 12px;
+    }
+
+    // Selector descendiente
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 12px 0;
+
+        // Selector > : solo li directos
+        > li {
+            padding: 8px 0;
+            border-bottom: 1px solid $color-suave;
+            font-size: 0.95rem;
+
+            // Último li (pseudoclase)
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+
+    p {
+        margin: 12px 0 0;
+        font-weight: 600;
+        color: $color-principal;
+    }
+
+    #total {
+        font-size: 1.2rem;
+        color: $color-acento;
+    }
+
+    #ahorro {
+        font-size: 0.95rem;
+        color: #666;
+    }
+}
+
+// === PRECIO Y AHORRO ===
+.precio {
+    color: $color-acento;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.ahorro {
+    color: $color-exito;
+    font-weight: 700;
+}
+
+// === CATEGORÍA (etiqueta) ===
+.categoria {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background-color: $color-suave;
+    color: $color-principal;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+// === SECCIÓN DE TECNOLOGÍAS (NOSOTROS) ===
+#habilidades {
+    margin-top: 32px;
+    margin-bottom: 24px;
+}
+
+.tecnologias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+    @media (max-width: $tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $celular) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tech-item {
+    background-color: white;
+    @include caja(16px);
+    border-left: 4px solid $color-principal;
+
+    h4 {
+        margin-top: 0;
+        color: $color-acento;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            padding: 6px 0;
+            border-bottom: 1px solid $color-suave;
+
+            // Selector agrupado: :last-child
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+// === FORMULARIO ===
+.formulario {
+    background-color: white;
+    @include caja(24px);
+    border-radius: 12px;
+    border: 1px solid $color-suave;
+    max-width: 600px;
+    margin: 24px auto;
+
+    .form-label {
+        font-weight: 600;
+        color: $color-principal;
+        margin-bottom: 8px;
+    }
+
+    .form-control,
+    .form-select {
+        border: 2px solid $color-suave;
+        border-radius: $radio;
+        transition: all $transicion-normal;
+
+        // Selector de atributo [class]
+        &:focus {
+            border-color: $color-principal;
+            box-shadow: 0 0 0 3px rgba($color-principal, 0.1);
+        }
+
+        // Selector descendiente
+        &.is-invalid {
+            border-color: #dc3545;
+        }
+    }
+
+    .form-check-input {
+        border-color: $color-suave;
+        cursor: pointer;
+
+        &:checked {
+            background-color: $color-principal;
+            border-color: $color-principal;
+        }
+    }
+
+    .invalid-feedback {
+        display: block;
+        color: #dc3545;
+        font-size: 0.875rem;
+        margin-top: 4px;
+    }
+}
+
+.botones-formulario {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    justify-content: center;
+
+    @media (max-width: $celular) {
+        flex-direction: column;
+    }
+
+    button {
+        flex: 1;
+
+        @media (max-width: $celular) {
+            width: 100%;
+        }
+    }
+}
+
+// === ALERTA/MENSAJE DE ÉXITO ===
+.alert {
+    border-radius: $radio;
+    border-left: 6px solid;
+
+    &.alert-warning {
+        background-color: lighten(#FF9800, 25%);
+        border-color: $color-advertencia;
+        color: darken($color-advertencia, 20%);
+    }
+
+    &.alert-success {
+        background-color: lighten($color-exito, 40%);
+        border-color: $color-exito;
+        color: darken($color-exito, 20%);
+    }
+}
+
+// === PIE DE PÁGINA ===
+.pie {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 2px solid $color-suave;
+    color: #999;
+    font-size: 0.9rem;
+    text-align: center;
+
+    p {
+        margin-bottom: 8px;
+
+        // Último párrafo
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // Selector descendiente: enlaces en el footer
+    a {
+        color: $color-principal;
+        text-decoration: none;
+        font-weight: 600;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+// === PERSONALIZACIÓN DE BOOTSTRAP ===
+
+// Botones primarios personalizados
+.btn-primary {
+    --bs-btn-bg: var(--color-principal);
+    --bs-btn-border-color: var(--color-principal);
+    --bs-btn-hover-bg: var(--color-acento);
+    --bs-btn-hover-border-color: var(--color-acento);
+    --bs-btn-hover-color: white;
+    --bs-btn-focus-shadow-rgb: #{$color-acento};
+    border-radius: $radio;
+    transition: all $transicion-normal;
+}
+
+// Botones secundarios
+.btn-secondary {
+    --bs-btn-bg: #{$color-suave};
+    --bs-btn-border-color: #{$color-suave};
+    --bs-btn-color: #{$color-principal};
+    --bs-btn-hover-bg: #{darken($color-suave, 10%)};
+    --bs-btn-hover-border-color: #{darken($color-suave, 10%)};
+}
+
+// Inputs y selects personalizados
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--color-principal);
+    box-shadow: 0 0 0 0.25rem rgba($color-principal, 0.25);
+}
+
+// === TRANSICIONES Y ANIMACIONES ===
+
+// Transición general para todos los elementos interactivos
+button,
+a,
+input,
+select,
+textarea {
+    transition: all $transicion-normal ease-in-out;
+}
+
+// Animación suave al cargar
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tarjeta {
+    animation: fadeIn $transicion-lenta ease-in-out;
+}
