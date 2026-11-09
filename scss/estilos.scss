@@ -626,7 +626,7 @@ textarea {
     transition: all $transicion-normal ease-in-out;
 }
 
-// Animación suave al cargar
+// Animación suave al cargar (fadeIn)
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -638,6 +638,56 @@ textarea {
     }
 }
 
+// Animación de escala al hacer hover
+@keyframes scaleUp {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+// Animación de pulso para elementos importantes
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba($color-acento, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba($color-acento, 0);
+    }
+}
+
+// Aplicar animación fadeIn a las tarjetas
 .tarjeta {
     animation: fadeIn $transicion-lenta ease-in-out;
+}
+
+// Aplicar animación de pulso al carrito
+#carrito {
+    animation: pulse 2s infinite;
+}
+
+// Animación suave en botones al hacer clic
+.btn {
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width $transicion-normal, height $transicion-normal;
+    }
+
+    &:active::before {
+        width: 300px;
+        height: 300px;
+    }
 }
