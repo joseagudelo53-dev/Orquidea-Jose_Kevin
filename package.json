@@ -1,0 +1,23 @@
+{
+  "name": "orquidea",
+  "version": "1.0.0",
+  "description": "Tienda en línea de equipos que ahorran energía - Proyecto educativo",
+  "main": "index.html",
+  "scripts": {
+    "sass": "sass scss/estilos.scss css/estilos.css --no-source-map",
+    "sass:watch": "sass --watch scss:css --no-source-map"
+  },
+  "keywords": [
+    "energía",
+    "eficiencia",
+    "tienda",
+    "el niño",
+    "colombia"
+  ],
+  "author": "Jose Andres Agudelo, Kevin Rosario Cano",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "sass": "^1.106.1"
+  }
+}

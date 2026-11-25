@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Dependencies
 node_modules/
 
@@ -24,10 +25,15 @@ yarn-debug.log*
 yarn-error.log*
 
 # IDE
+=======
+﻿node_modules/
+package-lock.json
+>>>>>>> 08b75d09e481676d9e29e4b7846f7177ac2097c1
 .vscode/
 .idea/
 *.swp
 *.swo
+<<<<<<< HEAD
 *.sublime-workspace
 *.sublime-project
 
@@ -47,3 +53,12 @@ coverage/
 # Cache
 .cache/
 .parcel-cache/
+=======
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+.temp/
+dist/
+build/
+>>>>>>> 08b75d09e481676d9e29e4b7846f7177ac2097c1
