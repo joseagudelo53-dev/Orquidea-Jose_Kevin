@@ -1,0 +1,422 @@
+/* =============================================================
+// Hoja de estilos global de Orquídea
+// Copiado y adaptado del proyecto original (scss/estilos.scss)
+// ============================================================= */
+
+:root {
+  --color-principal: #6b4ba3; /* Morado oscuro: encabezado y titulos */
+  --color-acento: #ff6b9d;    /* Rosa/magenta: precios y detalles */
+  --color-fondo: #f8f6fb;     /* Lavanda muy clara: fondo */
+  --color-texto: #2d2d2d;     /* Casi negro: texto principal */
+  --color-suave: #e8dff5;     /* Lavanda clara: bordes y divisiones */
+  --color-exito: #4caf50;     /* Verde: mensajes de exito */
+  --color-advertencia: #ff9800; /* Naranja: alertas */
+  --radio: 12px;
+  --sombra: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --sombra-fuerte: 0 8px 24px rgba(0, 0, 0, 0.15);
+  --transicion-rapida: 0.2s;
+  --transicion-normal: 0.3s;
+  --transicion-lenta: 0.5s;
+}
+
+/* ============================================================= */
+/* ESTILOS BASE */
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  color: var(--color-principal);
+  font-weight: 700;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+/* ============================================================= */
+/* ENCABEZADO */
+.encabezado {
+  background: linear-gradient(135deg, var(--color-principal) 0%, #5a3a8a 100%);
+  color: white;
+  margin-bottom: 24px;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: var(--sombra);
+}
+
+.encabezado h1 {
+  color: white;
+  margin-top: 0;
+  font-size: 2.2rem;
+}
+
+.encabezado p {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  transition: all var(--transicion-normal);
+  font-weight: 500;
+}
+
+.menu a:hover {
+  background-color: white;
+  color: var(--color-principal);
+  border-color: white;
+}
+
+.menu a.activo {
+  background-color: var(--color-principal);
+  color: white;
+  box-shadow: var(--sombra);
+}
+
+/* ============================================================= */
+/* TARJETAS (GRID) */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 992px) {
+  .tarjetas { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 576px) {
+  .tarjetas { grid-template-columns: 1fr; }
+}
+
+.tarjeta {
+  background-color: white;
+  border: 1px solid var(--color-suave);
+  padding: 16px;
+  border-radius: 12px;
+  transition: all var(--transicion-normal);
+}
+
+.tarjeta:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-fuerte);
+  border-color: var(--color-acento);
+}
+
+.tarjeta h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.categoria {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background-color: var(--color-suave);
+  color: var(--color-principal);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.precio {
+  color: var(--color-acento);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.ahorro {
+  color: var(--color-exito);
+  font-weight: 700;
+}
+
+/* ============================================================= */
+/* BUSCADOR */
+.buscador-container {
+  margin-bottom: 16px;
+}
+
+#buscador {
+  border: 2px solid var(--color-suave);
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+#buscador:focus {
+  border-color: var(--color-principal);
+  box-shadow: 0 0 0 3px rgba(var(--color-principal), 0.1);
+  outline: none;
+}
+
+/* ============================================================= */
+/* FILTROS */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  justify-content: center;
+}
+
+.filtro {
+  border: 2px solid var(--color-principal);
+  background-color: white;
+  color: var(--color-principal);
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: all var(--transicion-normal);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.filtro:hover {
+  background-color: var(--color-principal);
+  color: white;
+}
+
+.filtro.activo {
+  background-color: var(--color-principal);
+  color: white;
+  box-shadow: var(--sombra);
+}
+
+/* ============================================================= */
+/* CATALOGO */
+.catalogo {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .catalogo { grid-template-columns: 1fr; }
+}
+
+/* ============================================================= */
+/* CARRITO */
+#carrito {
+  background-color: white;
+  border: 2px solid var(--color-acento);
+  padding: 16px;
+  border-radius: 12px;
+  position: sticky;
+  top: 16px;
+}
+
+#carrito-vacio {
+  background-color: white;
+  border: 2px solid var(--color-suave);
+  padding: 16px;
+  border-radius: 12px;
+}
+
+#carrito-vacio h2 {
+  color: var(--color-principal);
+}
+
+#carrito h2 {
+  margin-top: 0;
+  color: var(--color-acento);
+  border-bottom: 2px solid var(--color-suave);
+  padding-bottom: 12px;
+}
+
+#carrito ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+}
+
+#carrito ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-suave);
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#carrito ul li:last-child {
+  border-bottom: none;
+}
+
+#total {
+  margin: 12px 0 0;
+  font-weight: 600;
+  color: var(--color-principal);
+  font-size: 1.2rem;
+}
+
+#ahorro {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* ============================================================= */
+/* BOTONES */
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all var(--transicion-normal);
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--color-principal);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-acento);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: var(--color-suave);
+  color: var(--color-principal);
+}
+
+.btn-secondary:hover {
+  background-color: #d3c9e5;
+  color: var(--color-principal);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ============================================================= */
+/* PIE DE PAGINA */
+.pie {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 2px solid var(--color-suave);
+  color: #999;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.pie p {
+  margin-bottom: 8px;
+}
+
+.pie a {
+  color: var(--color-principal);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.pie a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================= */
+/* ESTILOS PARA EL ADMIN */
+.admin-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.formulario {
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--color-suave);
+  margin-bottom: 24px;
+}
+
+.formulario h2 {
+  margin-top: 0;
+  color: var(--color-principal);
+  border-bottom: 2px solid var(--color-suave);
+  padding-bottom: 12px;
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--color-principal);
+  margin-bottom: 8px;
+}
+
+.form-control,
+.form-select {
+  border: 2px solid var(--color-suave);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--color-principal);
+  box-shadow: 0 0 0 3px rgba(var(--color-principal), 0.1);
+  outline: none;
+}
+
+.tabla-productos {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-productos th,
+.tabla-productos td {
+  padding: 12px;
+  border-bottom: 1px solid var(--color-suave);
+  text-align: left;
+}
+
+.tabla-productos th {
+  background-color: var(--color-fondo);
+  color: var(--color-principal);
+  font-weight: 600;
+}
+
+.btn-borrar {
+  background-color: #dc3545;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-borrar:hover {
+  background-color: #c82333;
+}
+
+/* ============================================================= */
+/* RESPONSIVE */
+@media (max-width: 576px) {
+  .encabezado h1 { font-size: 1.8rem; }
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.5rem; }
+  .catalogo { grid-template-columns: 1fr; }
+}

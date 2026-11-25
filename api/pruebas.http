@@ -1,0 +1,79 @@
+# =============================================================
+# Archivo de pruebas REST Client para la API de Orquídea
+# Usa la extensión "REST Client" de VS Code para ejecutar estas peticiones
+# =============================================================
+
+### LISTAR PRODUCTOS ---------------------------------------------------------
+GET http://localhost:3000/api/productos
+Content-Type: application/json
+
+### LISTAR PRODUCTOS FILTRADOS POR CATEGORIA -------------------------------
+GET http://localhost:3000/api/productos?categoria=iluminacion
+Content-Type: application/json
+
+### OBTENER UN PRODUCTO POR ID --------------------------------
+GET http://localhost:3000/api/productos/1
+Content-Type: application/json
+
+### ERROR 404 - PRODUCTO NO ENCONTRADO ---------------------------
+GET http://localhost:3000/api/productos/9999
+Content-Type: application/json
+
+### CREAR UN NUEVO PRODUCTO -------------------------------------
+POST http://localhost:3000/api/productos
+Content-Type: application/json
+
+{
+  "nombre": "Bombillo LED 15W",
+  "categoria": "iluminacion",
+  "precio": 12000,
+  "wattsAntes": 60,
+  "wattsDespues": 15,
+  "horasDia": 5
+}
+
+### ERROR 400 - DATOS INVALIDOS -------------------------------
+POST http://localhost:3000/api/productos
+Content-Type: application/json
+
+{
+  "nombre": "",
+  "categoria": "invalida",
+  "precio": -100
+}
+
+### ACTUALIZAR UN PRODUCTO ----------------------------------------
+PUT http://localhost:3000/api/productos/1
+Content-Type: application/json
+
+{
+  "nombre": "Bombillo LED 9W - Nuevo modelo",
+  "precio": 9500,
+  "wattsAntes": 60,
+  "wattsDespues": 9,
+  "horasDia": 5
+}
+
+### ELIMINAR UN PRODUCTO -----------------------------------------
+DELETE http://localhost:3000/api/productos/99
+Content-Type: application/json
+
+### LISTAR PEDIDOS ------------------------------------------------
+GET http://localhost:3000/api/pedidos
+Content-Type: application/json
+
+### CREAR UN PEDIDO ---------------------------------------------
+POST http://localhost:3000/api/pedidos
+Content-Type: application/json
+
+{
+  "cliente": "Juan Pérez",
+  "productos": [
+    {"id": 1, "nombre": "Bombillo LED 9 W", "precio": 8900},
+    {"id": 5, "nombre": "Nevera eficiente", "precio": 1890000}
+  ]
+}
+
+### VERIFICAR SAUD DE LA API ----------------------------------------
+GET http://localhost:3000/api/health
+Content-Type: application/json
